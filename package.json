@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "react network detection hooks",
   "main": "index.js",
-  "repository": "https://github.com/geekskai/vuejs-offline",
+  "repository": "https://github.com/geekskai/react-network-detect",
   "author": "geeks.kai@gmail.com",
   "license": "MIT",
   "keywords": [
