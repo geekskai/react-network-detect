@@ -115,7 +115,7 @@ export const useOnlineEffect: UseOnlineEffectType = (pollingConfigs = true) => {
         clearInterval(intervalId);
       }
 
-      intervalId = setInterval(async () => {
+      intervalId = window.setInterval(async () => {
         try {
           await instance.ping({ url, timeout });
           setIsOnline(true);
