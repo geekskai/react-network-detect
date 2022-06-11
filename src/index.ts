@@ -29,7 +29,7 @@ class ReactNetworkDetect {
 
   private constructor(public pollingConfigs = defaultConfig) {}
 
-  setIntervalId(intervalId) {
+  setIntervalId(intervalId: number | undefined) {
     this.intervalId = intervalId;
   }
 
@@ -46,7 +46,7 @@ class ReactNetworkDetect {
     return ReactNetworkDetect.instance;
   }
 
-  private setPollingConfigs(pollingConfig) {
+  private setPollingConfigs(pollingConfig: IPollingConfig | boolean) {
     const needsPolling = UNSUPPORTED_USER_AGENTS_PATTERN.test(
       navigator?.userAgent
     );
@@ -62,7 +62,13 @@ class ReactNetworkDetect {
     }
   }
 
-  public ping({ url, timeout }): Promise<void> {
+  public ping({
+    url,
+    timeout,
+  }: {
+    url: string;
+    timeout: number;
+  }): Promise<void> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.onerror = reject;
