@@ -5,8 +5,6 @@ export interface IPingArgs {
   timeout: number;
 }
 
-export type PingType = ({}: IPingArgs) => Promise<void>;
-
 export interface IPollingConfig {
   enabled?: boolean;
   url?: string;
@@ -17,18 +15,3 @@ export interface IPollingConfig {
 export type UseOnlineEffectType = (
   pollingOptions?: IPollingConfig | boolean
 ) => void;
-
-export type GetPollingConfigType = (
-  pollingConfig: IPollingConfig | boolean
-  // needsPolling: boolean
-) =>
-  | {
-      enabled: true;
-      url: string;
-      timeout: number;
-      interval: number;
-      callback?: (online: boolean) => void;
-    }
-  | {
-      enabled: false;
-    };

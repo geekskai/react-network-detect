@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  PingType,
-  IPollingConfig,
-  GetPollingConfigType,
-  UseOnlineEffectType,
-} from "./types";
+import { IPollingConfig, UseOnlineEffectType } from "./types";
 declare global {
   interface Window {
     _useOnlineEffect_:
