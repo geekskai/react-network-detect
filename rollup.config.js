@@ -6,7 +6,7 @@ import babel from "rollup-plugin-babel";
 export default {
   input: "src/index.ts",
   output: {
-    file: "index.js",
+    file: "dist/index.js",
     format: "es",
   },
   plugins: [typescript(), babel(), terser()],
