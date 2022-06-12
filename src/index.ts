@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-const { useEffect, useState, useRef } = React;
+const { useEffect, useState } = React;
 
 const UNSUPPORTED_USER_AGENTS_PATTERN =
   /Windows.*Chrome|Windows.*Firefox|Linux.*Chrome/;
