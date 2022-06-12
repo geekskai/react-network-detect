@@ -1,5 +1,11 @@
 import * as React from "react";
-import { IPollingConfig, UseOnlineEffectType } from "./types";
+import {
+  IPollingConfig,
+  UseOnlineEffectType,
+  INetworkInformation,
+  TEffectiveType,
+  INetworkStatus,
+} from "./types";
 declare global {
   interface Window {
     _useOnlineEffect_:
@@ -138,3 +144,51 @@ export const useOnlineEffect: UseOnlineEffectType = (pollingConfigs = true) => {
 
   return { isOnline };
 };
+
+let supported: boolean = false;
+
+const useNetworkStatus = (initialEffectiveConnectionType: TEffectiveType) => {
+  supported =
+    navigator &&
+    "connection" in navigator &&
+    "effectiveType" in navigator.connection;
+
+  const initialNetworkStatus = {
+    supported,
+    effectiveConnectionType: supported
+      ? (navigator.connection as INetworkInformation).effectiveType
+      : initialEffectiveConnectionType,
+  };
+
+  const [networkStatus, updateNetworkStatus] =
+    useState<Partial<INetworkStatus>>(initialNetworkStatus);
+
+  const setNetworkStatus = (networkStatus: Partial<INetworkStatus>) => {
+    updateNetworkStatus({
+      supported,
+      ...networkStatus,
+    });
+  };
+
+  useEffect(() => {
+    if (supported) {
+      const navigatorConnection = navigator.connection as INetworkInformation;
+
+      const updateECTStatus = () => {
+        updateNetworkStatus({
+          supported,
+          effectiveConnectionType: navigatorConnection.effectiveType,
+        });
+      };
+
+      navigatorConnection.addEventListener("change", updateECTStatus);
+      return () => {
+        navigatorConnection.removeEventListener("change", updateECTStatus);
+      };
+    }
+  }, []);
+
+  return { ...networkStatus, setNetworkStatus };
+};
+
+export { useNetworkStatus };

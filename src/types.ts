@@ -15,3 +15,13 @@ export interface IPollingConfig {
 export type UseOnlineEffectType = (
   pollingOptions?: IPollingConfig | boolean
 ) => void;
+
+export type TEffectiveType = "slow-2g" | "2g" | "3g" | "4g";
+export interface INetworkInformation extends NetworkInformation {
+  readonly effectiveType: TEffectiveType;
+}
+
+export interface INetworkStatus {
+  supported: boolean;
+  effectiveConnectionType: TEffectiveType;
+}
