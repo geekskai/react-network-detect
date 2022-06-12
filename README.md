@@ -10,6 +10,10 @@ or
 
 `yarn add react-network-detect`
 
+## demo 
+[codesandbox](https://codesandbox.io/s/awesome-lovelace-f9g8lf?file=/src/App.tsx)
+
+
 ## use
 ###  useOnlineEffect 
 `import { useOnlineEffect } from 'react-network-detect';`
