@@ -13,6 +13,9 @@
     "detect",
     "disconnect"
   ],
+   "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup --config"
   },
