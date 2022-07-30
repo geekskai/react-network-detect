@@ -58,7 +58,7 @@ class ReactNetworkDetect {
     );
 
     if (needsPolling) {
-      if (typeof pollingConfig === "object" && pollingConfig.enabled) {
+      if (typeof pollingConfig === "object") {
         this.pollingConfigs = { ...defaultConfig, ...pollingConfig };
       } else if (pollingConfig) {
         this.pollingConfigs = defaultConfig;
