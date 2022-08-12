@@ -19,9 +19,9 @@
   "scripts": {
     "build": "rollup --config"
   },
-  "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
