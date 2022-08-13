@@ -9,7 +9,9 @@
 
 
 
-react network detection hooks
+### react network detection hooks
+
+> If you think it's good, please give a star, this will be the motivation for me to continue to work hard, thank you very much.
 
 
 ## install
