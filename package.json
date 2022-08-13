@@ -1,6 +1,6 @@
 {
   "name": "react-network-detect",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "react network detection hooks",
   "main": "dist/index.js",
   "repository": "https://github.com/geekskai/react-network-detect",
