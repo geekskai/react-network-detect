@@ -1,6 +1,16 @@
 # react-network-detect
 
+
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-network-detect)
+[![GitHub license](https://img.shields.io/github/license/geekskai/react-network-detect)](https://github.com/geekskai/react-network-detect/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/react-network-detect.svg)](https://www.npmjs.com/package/react-network-detect)
+[![npm downloads](https://img.shields.io/npm/dm/react-network-detect.svg)](https://www.npmjs.com/package/react-network-detect)
+[![GitHub stars](https://img.shields.io/github/stars/geekskai/react-network-detect)](https://github.com/geekskai/react-network-detect/stargazers)
+
+
+
 react network detection hooks
+
 
 ## install
 
