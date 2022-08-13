@@ -7,7 +7,7 @@ export default {
   input: "src/index.ts",
   output: {
     file: "dist/index.js",
-    format: "es",
+    format: "cjs",
   },
   plugins: [typescript(), babel(), terser()],
 };
