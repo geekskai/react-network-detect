@@ -54,7 +54,7 @@ class ReactNetworkDetect {
 
   private setPollingConfigs(pollingConfig: IPollingConfig | boolean) {
     const needsPolling = UNSUPPORTED_USER_AGENTS_PATTERN.test(
-      navigator?.userAgent
+      global.navigator?.userAgent
     );
 
     if (needsPolling) {
@@ -149,14 +149,14 @@ let supported: boolean = false;
 
 const useNetworkStatus = (initialEffectiveConnectionType: TEffectiveType) => {
   supported =
-    navigator &&
-    "connection" in navigator &&
-    "effectiveType" in navigator.connection;
+    global.navigator &&
+    "connection" in global.navigator &&
+    "effectiveType" in global.navigator.connection;
 
   const initialNetworkStatus = {
     supported,
     effectiveConnectionType: supported
-      ? (navigator.connection as INetworkInformation).effectiveType
+      ? (global.navigator.connection as INetworkInformation).effectiveType
       : initialEffectiveConnectionType,
   };
 
@@ -172,7 +172,8 @@ const useNetworkStatus = (initialEffectiveConnectionType: TEffectiveType) => {
 
   useEffect(() => {
     if (supported) {
-      const navigatorConnection = navigator.connection as INetworkInformation;
+      const navigatorConnection = global.navigator
+        .connection as INetworkInformation;
 
       const updateECTStatus = () => {
         updateNetworkStatus({
